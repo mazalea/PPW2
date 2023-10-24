@@ -75,10 +75,10 @@ p {
 p:last-child {
     margin-bottom: 0px;
 }
+#p-home {
+    margin-top: 20px;
+}
 
-/* .navbar{
-    background-color: #fef9fd;
-} */
 
 #navbar-menu {
     position: sticky;
@@ -94,7 +94,7 @@ p:last-child {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 50vh; 
+    height: 80vh; 
 }
 
 /*
@@ -142,34 +142,6 @@ Separator
 }
 
 
-/* about Section */
-
-.about{
-	overflow:hidden;
-	padding:80px 0px;
-}
-
-.single_about{
-	margin-top: 50px;
-}
-.single_about_img{
-	margin-bottom:30px;
-}
-.single_about h3{
-    font-size: 18px;
-    font-family: 'big_johnregular';
-    line-height: 50px;
-}
-.single_about h3 span{
-	font-size:48px;
-	display:block;
-	
-	
-}
-.single_about p{
-	font-size:18px;
-}
-
 /* What i do */
 
 .whatido{
@@ -194,8 +166,8 @@ Separator
 	margin-bottom:30px;
 }
 .single_whatido_img img{
-	width:130px;
-	height:100px;
+	width:200px;
+	height:310px;
 }
 .single_whatido h3{
 	font-size:18px;
@@ -213,12 +185,8 @@ Separator
 .main_myworks_content{
 	margin-top:80px;
 }
-.single_work_colum{
-	padding:0;
-	border:1px solid #ddd;
-}
 .single_work img{
-	width:100%;
+	width:50%;
 }
 
 .btn_bg {
@@ -232,101 +200,10 @@ Separator
 }
 .btn_bg a{
     position: absolute;
-    left: 42%;
+    left: 45%;
     top: -50px;
     background: #fad663;
     border: 2px solid #000;
     border-radius: 15px 15px 15px 15px;
 }
 
-/* contact section */
-.contact{
-    padding: 80px 0px 20px 0px;
-	background:#d2eae3;
-}
-
-.contact_socail_bookmark{
-	margin-top:80px;
-}
-.contact_adress{
-	margin-top:50px;
-	margin-bottom:35px;
-}
-.contact_socail_bookmark_area{
-	margin-left:20px;
-}
-.contact_socail_bookmark_area h3{
-	font-size:18px;
-	font-family: 'big_johnregular';
-}
-.contact_socail_bookmark_area span{
-	display:block;
-	font-size:18px;
-}
-.contact_socail_bookmark a img{
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-}
-.contact_adress{
-	margin-left:10px;
-}
-.single_contact_phone{
-	margin-left:10px;
-}
-
-.contact_message{
-	margin-top:145px;
-}
-.message_btn{
-	width:100%;
-	display:block;
-}
-.contact .btn_bg {
-    background: url(../images/separetor2.png) no-repeat center center;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    display: inline-block;
-    height: 15px;
-    margin-top: 60px;
-}
-.contact .btn_bg a{
-    position: absolute;
-    left: 35%;
-    top: -50px;
-    background: #fad663;
-    border: 2px solid #000;
-    border-radius: 15px 15px 15px 15px;
-}
-
-.footer_copyright{
-	overflow:hidden;
-	margin-top:110px;
-}
-
-.single_copyirgth ul{
-	margin:0;
-	padding:0;
-	list-style:none;
-}
-.single_copyirgth ul li{
-	display:inline-block;
-}
-.single_copyirgth ul li a{
-	display: block;
-    padding:10px;
-    color: #000;
-	text-transform:uppercase;
-	font-size:14px;
-	font-family: 'big_johnregular';
-	border-radius:10px;
-	transition:.5s;
-}
-.single_copyirgth ul li a:hover{
-	color:#ffd600;
-}
-
-.single_copyirgth p{
-	margin-top:10px;
-}
