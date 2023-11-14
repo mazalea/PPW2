@@ -16,6 +16,14 @@
                             <img class="example-image img-fluid mb-2" src="{{ asset('storage/posts_image/'.$gallery->picture ) }}" alt="image-1" />
                             </a>
                             </div>
+                            <div>
+                            <a href="{{ route('gallery.edit', $gallery) }}" class="btn btn-primary">Edit Photo</a>
+                            <form method="POST" action="{{ route('gallery.destroy', $gallery) }}">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete Photo</button>
+                            </form>
+                            </div>
                         </div>
                         @endforeach
                     @else

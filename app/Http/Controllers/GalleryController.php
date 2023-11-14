@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\File;
 
 class GalleryController extends Controller
 {
@@ -76,22 +77,57 @@ class GalleryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $gallery = Post::find($id);
+        // dd($id);
+        return view('gallery.edit', ['gallery' => $gallery]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $gallery)
     {
-        //
+        // dd($request->all());
+        // dd($gallery->all());
+
+        $request->validate([
+            'picture' => 'image|nullable|max:1999'
+        ]);
+
+        if ($request->hasFile('picture')) 
+        {
+            $photoPath = storage_path('app/public/posts_image/'. $gallery->picture);
+            if (File::exists($photoPath)) 
+            {
+                File::delete($photoPath);
+            }
+
+            $filenameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file('picture')->storeAs('posts_image', $filenameSimpan);
+
+            $gallery->picture = $filenameSimpan;
+
+            if (Storage::exists('posts_image/' . $gallery->picture)) {
+                $originalImagePath = public_path('storage/photos/' . $gallery->picture);
+            }
+
+            $gallery->update(['picture' => $filenameSimpan]);
+        }
+
+        return redirect()->route('gallery.index')->withSuccess('Update successful!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $gallery)
     {
-        //
+        $gallery->update(['picture' => null]);
+        File::delete(public_path() . 'posts_image/' . $gallery->picture);
+
+        return redirect()->route('gallery.index');
     }
 }
